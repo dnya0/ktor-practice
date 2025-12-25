@@ -6,6 +6,7 @@ val exposed_version: String by project
 plugins {
     kotlin("jvm") version "2.2.20"
     id("io.ktor.plugin") version "3.3.1"
+    kotlin("plugin.serialization") version "2.2.20"
 }
 
 group = "practice.ktor"
@@ -19,6 +20,7 @@ dependencies {
     implementation("io.ktor:ktor-server-call-logging")
     implementation("io.ktor:ktor-server-core")
     implementation("io.ktor:ktor-server-content-negotiation")
+    implementation("io.ktor:ktor-serialization-kotlinx-json")
     implementation("io.ktor:ktor-server-netty")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("io.ktor:ktor-server-config-yaml")
@@ -32,4 +34,7 @@ dependencies {
 
     //postgres
     implementation("org.postgresql:postgresql:${postgres_version}")
+    
+    //h2 in-memory database
+    implementation("com.h2database:h2:2.2.224")
 }
